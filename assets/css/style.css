@@ -1,0 +1,196 @@
+:root {
+    --font--main: "Inter", sans-serif;
+
+    --font--size: 16px;
+    --line--height: 1.75;
+
+    --color--primary: rgb(128, 0, 255);
+    --color--secondary: rgb(255, 0, 128);
+    --color--tertiary: rgb(0, 255, 128);
+
+    --color--white: rgb(255, 255, 255);
+    --color--black: rgb(20, 20, 20);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color--black);
+    font: normal 400 var(--font--size) / var(--line--height) var(--font--main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-md {
+    width: 92%;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.site {
+    display: grid;
+    grid-template-rows: 3.75rem auto 3.75rem;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1rem);
+    animation: headerSlideDown 0.5s ease-in-out forwards;
+}
+
+.site-header .container {
+    height: 3.75rem;
+}
+
+.site-header .row {
+    height: 100%;
+    justify-content: space-between;
+}
+
+.site-title {
+    color: var(--color--white);
+    font-size: 1.5rem;
+}
+
+.go-back {
+    color: var(--color--white);
+}
+
+.site-content {
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 3.75rem - 3.75rem);
+    text-align: center;
+}
+
+.content-header,
+.content-main {
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.content-main {
+    opacity: 0;
+    animation: slideUp 0.75s ease-in-out forwards 0.25s;
+}
+
+.content-title {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.125rem;
+    background-image: linear-gradient(
+        to right,
+        var(--color--primary),
+        var(--color--secondary)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: zoomIn 1s ease-in-out forwards;
+}
+
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    text-align: left;
+}
+
+.list-item {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        90deg,
+        black 50%,
+        var(--color--secondary),
+        var(--color--primary)
+    );
+    background-size: 300%;
+    background-position: 0 0;
+    backdrop-filter: blur(1rem);
+    border-radius: 0.5rem;
+    transition: background-position 0.5s;
+}
+
+.list-item:hover {
+    background-position: 100% 100%;
+}
+
+.list-item > a {
+    display: block;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: var(--color--white);
+}
+
+.site-footer {
+    color: white;
+    text-align: center;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+@keyframes headerSlideDown {
+    0% {
+        transform: translateY(-3.75rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
